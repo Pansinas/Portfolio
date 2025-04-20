@@ -1,0 +1,21 @@
+[
+  {
+    "title": "Multilingual Translator App",
+    "description": "Developed an AI-powered translator supporting 30+ languages for real-time text translation, designed to bridge communication gaps globally.",
+    "tech": "Python, TensorFlow, Google Translate API, Streamlit",
+    "link": "https://pansinas.github.io/Paas-web/"
+  },
+  {
+    "title": "Crime Report Management System",
+    "description": "Built a secure platform enabling citizens to file crime reports online, track case updates, and communicate with authorities anonymously.",
+    "tech": "Python, Django, PostgreSQL, HTML/CSS",
+    "link": "https://criminal-record-management-zcyypjhnqr2evu6wctzlrm.streamlit.app/"
+  },
+  {
+    "title": "AI Budget Trip Planner",
+    "description": "Created an AI-based travel planner that generates optimized itineraries based on user budget, interests, and time constraints using predictive modeling.",
+    "tech": "Python, Machine Learning, Flask, OpenAI API",
+    "link": "https://trip-budget-planner-vzzb.onrender.com/"
+  }
+]
+  
