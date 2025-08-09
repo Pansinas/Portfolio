@@ -1,1 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pansin A S | AI & Data Science Portfolio</title>
+  <meta name="description" content="AI & Data Science student specializing in machine learning solutions, computer vision, and data analysis.">
+  <style>
+    /* Modern CSS with advanced features */
+    :root {
+      --bg: #0b0d0f;
+      --panel: #0f1113;
+      --muted: #9aa4b2;
+      --accent: #bfc7d6;
+      --white: #eef2f7;
+      --primary: #5e81ac;
+      --primary-light: #81a1c1;
+      --max-width: 1200px;
+      --spacer: clamp(16px, 3vw, 40px);
+      --ff: 'Inter', system-ui, -apple-system, sans-serif;
+      --fs-sm: 0.875rem;
+      --fs-base: 1rem;
+      --fs-md: 1.25rem;
+      --fs-lg: 1.5rem;
+      --fs-xl: 2rem;
+      --fs-xxl: clamp(2.5rem, 5vw, 4rem);
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
 
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('data:font/woff2;charset=utf-8;base64,d09GMgABAAAAA...') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url('data:font/woff2;charset=utf-8;base64,d09GMgABAAAAA...') format('woff2');
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100%;
+      background-color: var(--bg);
+      color: var(--white);
+      font-family: var(--ff);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Layout */
+    .site {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: var(--spacer);
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--spacer) 0;
+      z-index: 100;
+      background: rgba(11, 13, 15, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-md);
+      background: var(--white);
+      color: var(--bg);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: var(--fs-lg);
+      transition: var(--transition);
+    }
+
+    .logo:hover {
+      transform: rotate(15deg) scale(1.05);
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: var(--fs-sm);
+      letter-spacing: 0.5px;
+      position: relative;
+      padding: 8px 0;
+      transition: var(--transition);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: var(--transition);
+    }
+
+    nav a:hover {
+      color: var(--white);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a.active {
+      color: var(--white);
+    }
+
+    nav a.active::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: calc(100vh - 100px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      padding: 80px 0;
+    }
+
+    .hero-content {
+      position: relative;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--primary-light);
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      position: relative;
+      padding-left: 48px;
+    }
+
+    .eyebrow::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 36px;
+      height: 2px;
+      background: var(--primary);
+    }
+
+    h1 {
+      font-size: var(--fs-xxl);
+      line-height: 1.1;
+      margin: 0 0 24px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -1.5px;
+      position: relative;
+    }
+
+    h1 span {
+      color: var(--primary-light);
+    }
+
+    .lead {
+      max-width: 540px;
+      color: var(--muted);
+      font-size: var(--fs-md);
+      margin: 0 0 32px;
+      opacity: 0.9;
+    }
+
+    .cta {
+      display: flex;
+      gap: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: var(--fs-sm);
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(94, 129, 172, 0.3);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .hero-image {
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-blob {
+      width: 100%;
+      height: 480px;
+      background: linear-gradient(135deg, #111319, #17202a);
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      animation: morph 12s ease-in-out infinite;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes morph {
+      0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+      50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
+      100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+    }
+
+    .hero-blob::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(94, 129, 172, 0.2) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .hero-blob-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: var(--muted);
+      padding: 40px;
+    }
+
+    /* About Section */
+    .about {
+      padding: 120px 0;
+      position: relative;
+    }
+
+    .about::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    }
+
+    .section-header {
+      margin-bottom: 60px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    h2 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+    }
+
+    .section-subtitle {
+      max-width: 500px;
+      color: var(--muted);
+      font-size: var(--fs-md);
+      opacity: 0.8;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .about-content p {
+      color: var(--muted);
+      margin-bottom: 24px;
+      font-size: var(--fs-base);
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .skill {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      font-size: var(--fs-sm);
+      color: var(--white);
+      transition: var(--transition);
+    }
+
+    .skill:hover {
+      background: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .about-image {
+      position: relative;
+    }
+
+    .about-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      position: absolute;
+      bottom: -40px;
+      right: -40px;
+      width: 280px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transform: rotate(-2deg);
+      transition: var(--transition);
+    }
+
+    .about-card:hover {
+      transform: rotate(0deg) translateY(-10px);
+    }
+
+    .about-card h3 {
+      font-size: var(--fs-lg);
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+
+    .about-card p {
+      font-size: var(--fs-sm);
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    /* Projects Section */
+    .projects {
+      padding: 120px 0;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .project-image {
+      height: 200px;
+      background: linear-gradient(135deg, #111319, #17202a);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.05);
+    }
+
+    .project-content {
+      padding: 24px;
+    }
+
+    .project-category {
+      display: inline-block;
+      font-size: var(--fs-sm);
+      color: var(--primary-light);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .project-title {
+      font-size: var(--fs-lg);
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+
+    .project-description {
+      color: var(--muted);
+      font-size: var(--fs-base);
+      margin-bottom: 20px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .project-tag {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 120px 0;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(94, 129, 172, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--primary);
+    }
+
+    .contact-details h3 {
+      font-size: var(--fs-md);
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .contact-details p, .contact-details a {
+      color: var(--muted);
+      font-size: var(--fs-base);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .contact-details a:hover {
+      color: var(--primary-light);
+    }
+
+    .contact-form {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-md);
+      padding: 40px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    label {
+      display: block;
+      color: var(--white);
+      font-size: var(--fs-sm);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-sm);
+      color: var(--white);
+      font-family: var(--ff);
+      font-size: var(--fs-base);
+      transition: var(--transition);
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: rgba(94, 129, 172, 0.05);
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: var(--fs-base);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .submit-btn:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(94, 129, 172, 0.3);
+    }
+
+    /* Footer */
+    footer {
+      padding: 60px 0;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .footer-logo {
+      font-size: var(--fs-xl);
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: var(--fs-sm);
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--primary-light);
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .social-link:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .social-link svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--white);
+    }
+
+    .copyright {
+      color: var(--muted);
+      font-size: var(--fs-sm);
+    }
+
+    /* Animations */
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    [data-animate].animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 60px 0;
+      }
+
+      .about-grid, .contact-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .about-card {
+        position: static;
+        margin-top: 40px;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --spacer: 20px;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      nav {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 10px;
+      }
+
+      .cta {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site">
+    <!-- Header -->
+    <header>
+      <div class="brand">
+        <div class="logo">PA</div>
+        <div>
+          <div style="font-weight:700;font-size:1.1rem">Pansin A S</div>
+          <div style="font-size:0.8rem;color:var(--muted)">AI & Data Science Engineer</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about" class="active">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <span class="eyebrow" data-animate>AI & Data Science Specialist</span>
+        <h1 data-animate class="delay-1">Transforming Data <span>Into Intelligent</span> Solutions</h1>
+        <p class="lead" data-animate class="delay-2">I build machine learning systems that solve real-world problems. Specializing in computer vision, predictive analytics, and data-driven product development.</p>
+        <div class="cta" data-animate class="delay-3">
+          <button class="btn btn-primary" onclick="document.location='#contact'">Hire Me</button>
+          <button class="btn btn-secondary" onclick="downloadResume()">Download CV</button>
+        </div>
+      </div>
+      <div class="hero-image" data-animate class="delay-4">
+        <div class="hero-blob">
+          <div class="hero-blob-content">
+            <svg width="120" height="120" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 8V16" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 12H16" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3 style="margin-top:20px;color:var(--white)">AI Solutions</h3>
+            <p style="margin-top:8px">Machine Learning • Computer Vision • Data Analysis</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="section-header" data-animate>
+        <div>
+          <h2>About Me</h2>
+          <p class="section-subtitle">Passionate AI & Data Science student with focus on practical implementations and real-world solutions.</p>
+        </div>
+      </div>
+      <div class="about-grid">
+        <div class="about-content" data-animate class="delay-1">
+          <p>I'm a Third-year Computer Science student specializing in AI & Data Science, currently exploring opportunities to apply my skills in professional settings. My approach combines technical expertise with product thinking to deliver impactful solutions.</p>
+          <p>With experience in both academic and practical projects, I've developed a strong foundation in machine learning, data analysis, and software development. I'm particularly interested in the intersection of AI and product development.</p>
+          <p>When I'm not coding, you can find me researching new ML techniques, participating in hackathons, or contributing to open-source projects.</p>
+          
+          <div class="skills">
+            <div class="skill">Python</div>
+            <div class="skill">PyTorch</div>
+            <div class="skill">TensorFlow</div>
+            <div class="skill">Computer Vision</div>
+            <div class="skill">Time Series</div>
+            <div class="skill">SQL</div>
+            <div class="skill">Data Analysis</div>
+            <div class="skill">Pandas</div>
+            <div class="skill">NumPy</div>
+          </div>
+        </div>
+        <div class="about-image" data-animate class="delay-2">
+          <div class="hero-blob" style="height:400px;width:100%">
+            <div class="hero-blob-content">
+              <svg width="100" height="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12Z" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6 20V18C6 16.8954 6.89543 16 8 16H16C17.1046 16 18 16.8954 18 18V20" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="about-card">
+            <h3>Education</h3>
+            <p>B.Tech in Computer Science (AI & DS)</p>
+            <p style="margin-top:8px;color:var(--primary-light)">2022 - 2026 (Expected)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+      <div class="section-header" data-animate>
+        <div>
+          <h2>Featured Projects</h2>
+          <p class="section-subtitle">Selected work showcasing my expertise in AI and data science applications.</p>
+        </div>
+      </div>
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card" data-animate class="delay-1">
+          <div class="project-image">
+            <div style="padding:20px;text-align:center;color:var(--muted)">Satellite Imagery Analysis</div>
+          </div>
+          <div class="project-content">
+            <span class="project-category">Computer Vision</span>
+            <h3 class="project-title">EcoVision AI</h3>
+            <p class="project-description">Change detection pipeline for satellite imagery with preprocessing, segmentation and temporal analysis components.</p>
+            <div class="project-tags">
+              <span class="project-tag">PyTorch</span>
+              <span class="project-tag">OpenCV</span>
+              <span class="project-tag">GeoPandas</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card" data-animate class="delay-2">
+          <div class="project-image">
+            <div style="padding:20px;text-align:center;color:var(--muted)">Sales Dashboard</div>
+          </div>
+          <div class="project-content">
+            <span class="project-category">Data Analysis</span>
+            <h3 class="project-title">Sales Forecasting System</h3>
+            <p class="project-description">Customer segmentation and short-term sales forecasting using ARIMA and regression models with interactive dashboards.</p>
+            <div class="project-tags">
+              <span class="project-tag">Time Series</span>
+              <span class="project-tag">Scikit-learn</span>
+              <span class="project-tag">Tableau</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card" data-animate class="delay-3">
+          <div class="project-image">
+            <div style="padding:20px;text-align:center;color:var(--muted)">Mobile App Prototype</div>
+          </div>
+          <div class="project-content">
+            <span class="project-category">Product Design</span>
+            <h3 class="project-title">SaLeO POS System</h3>
+            <p class="project-description">Cross-platform POS system for small vendors with weight-based billing, trend reports, and inventory management.</p>
+            <div class="project-tags">
+              <span class="project-tag">Figma</span>
+              <span class="project-tag">UX Design</span>
+              <span class="project-tag">Prototyping</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card" data-animate class="delay-4">
+          <div class="project-image">
+            <div style="padding:20px;text-align:center;color:var(--muted)">Marketplace Concept</div>
+          </div>
+          <div class="project-content">
+            <span class="project-category">Startup Prototype</span>
+            <h3 class="project-title">Hyperlocal Services</h3>
+            <p class="project-description">End-to-end prototype and GTM strategy for a hyperlocal services marketplace with demand prediction features.</p>
+            <div class="project-tags">
+              <span class="project-tag">Business Strategy</span>
+              <span class="project-tag">ML Integration</span>
+              <span class="project-tag">Prototyping</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="section-header" data-animate>
+        <div>
+          <h2>Get In Touch</h2>
+          <p class="section-subtitle">Have a project in mind or want to discuss opportunities? Reach out below.</p>
+        </div>
+      </div>
+      <div class="contact-container">
+        <div class="contact-info" data-animate class="delay-1">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22 6L12 13L2 6" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="contact-details">
+              <h3>Email</h3>
+              <a href="mailto:pansinaspg@gmail.com">pansinaspg@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 16.92V19C22 19.5304 21.7893 20.0391 21.4142 20.4142C21.0391 20.7893 20.5304 21 20 21H4C3.46957 21 2.96086 20.7893 2.58579 20.4142C2.21071 20.0391 2 19.5304 2 19V16.92" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M18 8C18 6.4087 17.3679 4.88258 16.2426 3.75736C15.1174 2.63214 13.5913 2 12 2C10.4087 2 8.88258 2.63214 7.75736 3.75736C6.63214 4.88258 6 6.4087 6 8V16.92" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6 12H18" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="contact-details">
+              <h3>Location</h3>
+              <p>Kelambakkam, Tamil Nadu, India</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 4H19C20.1046 4 21 4.89543 21 6V18C21 19.1046 20.1046 20 19 20H5C3.89543 20 3 19.1046 3 18V6C3 4.89543 3.89543 4 5 4Z" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M16 8L12 12L8 8" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="contact-details">
+              <h3>Availability</h3>
+              <p>Open to internships and freelance projects</p>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form" data-animate class="delay-2">
+          <form id="contactForm" onsubmit="sendMessage(event)">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-logo" data-animate>PA</div>
+        <div class="footer-links" data-animate class="delay-1">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="social-links" data-animate class="delay-2">
+          <a href="#" class="social-link">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="https://www.facebook.com/profile.php?id=61557043562827">
+              <path d="M18 2H15C13.6739 2 12.4021 2.52678 11.4645 3.46447C10.5268 4.40215 10 5.67392 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73478 14.1054 6.48043 14.2929 6.29289C14.4804 6.10536 14.7348 6 15 6H18V2Z" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M23 3C22.0424 3.67548 20.9821 4.19211 19.86 4.53C19.2577 3.83751 18.4573 3.34669 17.567 3.12393C16.6767 2.90116 15.7395 2.9572 14.8821 3.28445C14.0247 3.61171 13.2884 4.1944 12.773 4.95372C12.2575 5.71303 11.9877 6.61234 12 7.53V8.53C10.2426 8.57557 8.50127 8.18581 6.93101 7.39545C5.36074 6.60508 4.01032 5.43864 3 4C3 4 -1 13 8 17C5.94053 18.398 3.48716 19.0989 1 19C10 24 21 19 21 7.5C20.9991 7.22145 20.9723 6.94359 20.92 6.67C21.9406 5.66349 22.6608 4.39271 23 3Z" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8Z" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 9H2V21H6V9Z" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 12H16" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 16V8" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+        <p class="copyright" data-animate class="delay-3">© <span id="year"></span> Pansin A S. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Advanced JavaScript for animations and functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      // Set current year
+      document.getElementById('year').textContent = new Date().getFullYear();
+      
+      // Scroll animations
+      const animateElements = document.querySelectorAll('[data-animate]');
+      
+      function checkAnimation() {
+        const windowHeight = window.innerHeight;
+        const triggerPoint = 150;
+        
+        animateElements.forEach(element => {
+          const elementPosition = element.getBoundingClientRect().top;
+          
+          if (elementPosition < windowHeight - triggerPoint) {
+            element.classList.add('animate');
+          }
+        });
+      }
+      
+      // Initial check
+      checkAnimation();
+      
+      // Check on scroll
+      window.addEventListener('scroll', checkAnimation);
+      
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          const target = document.querySelector(targetId);
+          
+          if (target) {
+            // Update active nav link
+            document.querySelectorAll('nav a').forEach(link => {
+              link.classList.remove('active');
+            });
+            this.classList.add('active');
+            
+            // Scroll to target
+            window.scrollTo({
+              top: target.offsetTop - 100,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+      
+      // Highlight nav link based on scroll position
+      const sections = document.querySelectorAll('section');
+      
+      function highlightNav() {
+        let current = '';
+        
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          
+          if (pageYOffset >= sectionTop - 200) {
+            current = section.getAttribute('id');
+          }
+        });
+        
+        document.querySelectorAll('nav a').forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+      
+      window.addEventListener('scroll', highlightNav);
+    });
+
+    // Form submission
+    function sendMessage(event) {
+      event.preventDefault();
+      
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value.trim();
+      const message = document.getElementById('message').value.trim();
+      
+      if (!name || !email || !subject || !message) {
+        alert('Please fill in all fields');
+        return;
+      }
+      
+      // Validate email
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address');
+        return;
+      }
+      
+      // IMPORTANT: Replace with your actual email address
+      const recipientEmail = 'pansinaspg@gmail.com';
+      const mailtoLink = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+        `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+      )}`;
+      
+      window.location.href = mailtoLink;
+      
+      // Reset form
+      document.getElementById('contactForm').reset();
+    }
+
+    // Resume download
+    function downloadResume() {
+      // Create a temporary anchor element
+      const link = document.createElement('a');
+      
+      // IMPORTANT: Replace with your actual resume URL
+      link.href = '/resume_pansin.pdf';
+      link.target = '_blank';
+      link.download = 'Pansin_AS_Resume.pdf';
+      
+      // Trigger download
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      // Fallback in case the file doesn't exist
+      setTimeout(() => {
+        if (!link.clicked) {
+          alert('Resume download failed. Please contact me directly for my CV.');
+        }
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
